@@ -1,4 +1,4 @@
-/* BASE STYLES */
+/* BASE RESET */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
@@ -6,7 +6,7 @@ body {
     background: url('https://img.freepik.com/premium-photo/abstract-rainbow-colorful-bright-feather-closeup-up-macro-view-background-plumage-texture-with-dew-drops_753134-644.jpg?w=2000') no-repeat center center fixed;
     background-size: cover;
     color: #fff;
-    overflow-x: hidden;
+    overflow: hidden; /* Prevents scrolling since we want it all on one screen */
 }
 
 .bg-overlay {
@@ -16,79 +16,84 @@ body {
     z-index: -1;
 }
 
-/* NAVBAR & HERO */
+/* NAVBAR */
 .navbar { display: flex; justify-content: space-between; padding: 30px 50px; align-items: center; }
 .logo { font-weight: 900; font-size: 1.5rem; letter-spacing: 2px; }
-.dot { color: #ffeb3b; }
-nav a { color: #fff; text-decoration: none; margin-left: 20px; font-size: 0.9rem; }
-.btn-cta { background: #1a1a4b; padding: 10px 25px; border-radius: 50px; transition: 0.4s ease; }
-.btn-cta:hover { background: #fff; color: #1a1a4b; transform: scale(1.1); }
+.dot-accent { color: #ffeb3b; }
+nav a { color: #fff; text-decoration: none; margin-left: 20px; font-size: 0.8rem; }
+.btn-cta { background: #1a1a4b; padding: 10px 25px; border-radius: 50px; }
 
-.hero { text-align: center; padding: 60px 20px; }
-.hero h1 { font-size: 4rem; font-weight: 900; }
-.light { display: block; font-weight: 200; font-size: 2rem; letter-spacing: 8px; }
+/* HERO */
+.hero { text-align: center; padding: 40px 20px; }
+.hero h1 { font-size: 3.5rem; font-weight: 900; }
+.light { display: block; font-weight: 200; font-size: 1.8rem; letter-spacing: 8px; }
 
-/* CAROUSEL & CARDS */
-.hobby-section { max-width: 1100px; margin: auto; padding: 20px; }
-.carousel-container {
+/* INTERACTIVE HOVER LOGIC */
+.hobby-container {
     display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    gap: 20px;
-    padding-bottom: 30px;
-    scrollbar-width: none;
+    width: 90%;
+    max-width: 1200px;
+    height: 450px;
+    margin: 0 auto;
+    gap: 15px;
 }
-.carousel-container::-webkit-scrollbar { display: none; }
 
 .hobby-card {
-    min-width: 350px;
-    flex: 0 0 auto;
-    scroll-snap-align: center;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 20px;
+    position: relative;
+    flex: 1; /* All cards start at the same width */
     overflow: hidden;
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border 0.3s;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1); /* Smooth movement */
 }
 
-/* Hover Animation for Cards */
+/* THE MAGIC: When you move mouse over, it grows */
 .hobby-card:hover {
-    transform: translateY(-15px) scale(1.03);
+    flex: 4; /* Grows to take up most of the space */
     border: 1px solid rgba(255, 255, 255, 0.8);
-    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-.image-box img { width: 100%; height: 250px; object-fit: cover; }
-.card-info { padding: 25px; text-align: center; }
-
-/* --- ENTRANCE ANIMATIONS --- */
-
-.fade-in {
-    animation: fadeIn 1.5s ease forwards;
+.hobby-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.6s;
+    filter: brightness(0.6);
 }
 
-.slide-up {
-    animation: slideUp 1s ease-out forwards;
+.hobby-card:hover img {
+    filter: brightness(0.9);
+    transform: scale(1.05);
 }
 
-.delay-1 { animation: slideUp 1s ease-out 0.3s forwards; opacity: 0; }
-.delay-2 { animation: slideUp 1s ease-out 0.6s forwards; opacity: 0; }
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+/* TEXT CONTENT */
+.card-content {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    opacity: 0; /* Hidden by default */
+    transform: translateY(20px);
+    transition: 0.4s ease 0.2s; /* Slight delay for text appearance */
 }
 
-@keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.hobby-card:hover .card-content {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.footer { text-align: center; padding: 40px; opacity: 0.6; font-size: 0.8rem; }
+.card-content h3 { font-size: 1.5rem; margin-bottom: 5px; letter-spacing: 2px; }
+.card-content p { font-size: 0.9rem; opacity: 0.8; }
+
+/* ENTRANCE ANIMATIONS */
+.fade-in { animation: fadeIn 1.5s ease; }
+.slide-up { animation: slideUp 1s ease-out; }
+.delay-1 { animation: slideUp 1s ease-out 0.2s forwards; opacity: 0; }
+.delay-2 { animation: slideUp 1s ease-out 0.4s forwards; opacity: 0; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+.footer { text-align: center; padding: 30px; opacity: 0.5; font-size: 0.8rem; }
