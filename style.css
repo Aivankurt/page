@@ -23,10 +23,10 @@ body {
 
 /* HERO */
 .hero { text-align: center; padding: 60px 20px 0; }
-.hero h1 { font-size: 4.5rem; font-weight: 900; letter-spacing: -2px; }
-.light { display: block; font-weight: 200; font-size: 2rem; letter-spacing: 12px; }
+.hero h1 { font-size: 3.5rem; font-weight: 900; letter-spacing: -1px; }
+.light { display: block; font-weight: 200; font-size: 2.5rem; letter-spacing: 15px; }
 
-/* COOL INTRO SECTION */
+/* INTRO SECTION */
 .intro-section {
     max-width: 850px;
     margin: 40px auto;
@@ -39,20 +39,18 @@ body {
 
 .intro-content p {
     margin-bottom: 25px;
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     color: rgba(255, 255, 255, 0.85);
 }
 
-/* BRAND GLOWS */
 .intro-content strong {
     color: #fff;
     text-shadow: 0 0 8px rgba(255, 235, 59, 0.6);
-    font-weight: 700;
 }
 
-/* HOBBY SECTION */
-.section-title { text-align: center; letter-spacing: 10px; font-weight: 200; margin-bottom: 30px; opacity: 0.7; }
+/* HOBBY SECTION & RAINBOW SCROLLBAR */
 .hobby-wrapper { width: 100%; padding-bottom: 60px; }
+.section-title { text-align: center; letter-spacing: 10px; font-weight: 200; margin-bottom: 30px; opacity: 0.7; }
 
 .hobby-track {
     display: flex;
@@ -62,7 +60,6 @@ body {
     cursor: grab;
 }
 
-/* THE "THINGY" SCROLLBAR */
 .hobby-track::-webkit-scrollbar { height: 10px; }
 .hobby-track::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.05); border-radius: 10px; margin: 0 25%; }
 .hobby-track::-webkit-scrollbar-thumb {
@@ -79,14 +76,14 @@ body {
     overflow: hidden;
     transition: 0.4s;
 }
-.hobby-card:hover { transform: scale(1.02); background: rgba(255, 255, 255, 0.15); }
+.hobby-card:hover { transform: scale(1.02); }
 .hobby-card img { width: 100%; height: 280px; object-fit: cover; }
 .card-info { padding: 30px; text-align: center; }
 
 /* ANIMATIONS */
-.slide-up { animation: slideUp 1s cubic-bezier(0.2, 0.8, 0.2, 1); }
-.delay-1 { animation: slideUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s forwards; opacity: 0; }
-.delay-2 { animation: slideUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.4s forwards; opacity: 0; }
+.slide-up { animation: slideUp 1s ease-out; }
+.delay-1 { animation: slideUp 1s ease-out 0.2s forwards; opacity: 0; }
+.delay-2 { animation: slideUp 1s ease-out 0.4s forwards; opacity: 0; }
 @keyframes slideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
 
-.footer { text-align: center; padding: 40px; opacity: 0.4; font-size: 0.8rem; letter-spacing: 2px; }
+.footer { text-align: center; padding: 40px; opacity: 0.4; font-size: 0.8rem; }
