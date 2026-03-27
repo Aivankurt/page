@@ -19,14 +19,14 @@
         </nav>
     </header>
 
-    <main class="content-wrapper">
+    <main>
         <section class="hero">
             <h1 class="slide-up">MODERN <span class="light">PORTFOLIO</span></h1>
             <p class="tagline delay-1">Aivan Kurt S. Ordoñez — Businessman, Animator, & Multimedia Artist</p>
         </section>
 
-        <section class="drag-section delay-2">
-            <div class="drag-container">
+        <div class="drag-wrapper delay-2">
+            <div class="hobby-track" id="hobbyTrack">
                 
                 <div class="hobby-card">
                     <img src="https://stillmed.olympics.com/media/Images/OlympicOrg/News/2017/04/11/2017-04-11-Volleyball-thumbnail.jpg" alt="Volleyball">
@@ -40,7 +40,7 @@
                     <img src="https://i.etsystatic.com/21790515/r/il/8c99f9/6831854181/il_1140xN.6831854181_g2zi.jpg" alt="Animation">
                     <div class="card-info">
                         <h3>ANIMATION</h3>
-                        <p>Creating unique digital characters and stories.</p>
+                        <p>Creating digital characters and storytelling.</p>
                     </div>
                 </div>
 
@@ -52,14 +52,41 @@
                     </div>
                 </div>
 
-                <div class="spacer"></div>
             </div>
-        </section>
+        </div>
     </main>
 
-    <footer class="footer fade-in">
+    <footer class="footer">
         <p>&copy; 2026 Aivan Kurt S. Ordoñez | Grade 11 ICT</p>
     </footer>
 
+    <script>
+        const slider = document.getElementById('hobbyTrack');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            slider.classList.add('active');
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        });
+        slider.addEventListener('mouseleave', () => {
+            isDown = false;
+            slider.classList.remove('active');
+        });
+        slider.addEventListener('mouseup', () => {
+            isDown = false;
+            slider.classList.remove('active');
+        });
+        slider.addEventListener('mousemove', (e) => {
+            if(!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 2; // Adjust scroll speed
+            slider.scrollLeft = scrollLeft - walk;
+        });
+    </script>
 </body>
 </html>
