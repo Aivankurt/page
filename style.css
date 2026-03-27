@@ -1,5 +1,47 @@
-* { box-sizing: border-box; margin: 0; padding: 0; }
+/* NEW WELCOME SCREEN STYLES */
+#welcome-screen {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: #000;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 1s ease-in-out;
+}
 
+.welcome-content { text-align: center; }
+
+.welcome-text {
+    font-size: 1.5rem;
+    font-weight: 200;
+    letter-spacing: 15px;
+    margin-bottom: 10px;
+    color: rgba(255,255,255,0.6);
+}
+
+.welcome-logo {
+    font-size: 3.5rem;
+    font-weight: 900;
+    letter-spacing: 5px;
+    background: linear-gradient(to right, #ffeb3b, #ff2e63);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.loading-bar {
+    width: 0%;
+    height: 3px;
+    background: #ffeb3b;
+    margin: 20px auto 0;
+    animation: load 2s forwards;
+}
+
+@keyframes load { to { width: 100%; } }
+
+/* EXISTING STYLES */
+* { box-sizing: border-box; margin: 0; padding: 0; }
 body {
     font-family: 'Segoe UI', sans-serif;
     background: url('https://img.freepik.com/premium-photo/abstract-rainbow-colorful-bright-feather-closeup-up-macro-view-background-plumage-texture-with-dew-drops_753134-644.jpg?w=2000') no-repeat center center fixed;
@@ -21,69 +63,34 @@ body {
 .btn-cta { background: #1a1a4b; padding: 10px 25px; border-radius: 50px; text-decoration: none; color: white; border: 1px solid rgba(255,255,255,0.2); }
 
 .hero { text-align: center; padding: 40px 20px 0; }
-
-.profile-container { margin-bottom: 30px; }
 .profile-main {
-    width: 250px;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 5px solid rgba(255, 255, 255, 0.2);
+    width: 250px; height: 250px; object-fit: cover;
+    border-radius: 50%; border: 5px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 0 30px rgba(255, 235, 59, 0.4);
-    transition: transform 0.4s ease;
 }
-.profile-main:hover { transform: scale(1.05); }
 
 .hero h1 { font-size: 3rem; font-weight: 900; letter-spacing: -1px; }
 .light { display: block; font-weight: 200; font-size: 2rem; letter-spacing: 12px; }
 
 .intro-section {
-    max-width: 850px;
-    margin: 40px auto;
-    padding: 50px;
-    background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(15px);
-    border-radius: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    max-width: 850px; margin: 40px auto; padding: 50px;
+    background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(15px); border-radius: 30px;
 }
-.intro-content p { margin-bottom: 25px; font-size: 1.1rem; color: rgba(255, 255, 255, 0.85); }
-.intro-content strong { color: #fff; text-shadow: 0 0 8px rgba(255, 235, 59, 0.6); }
-
-.hobby-wrapper { width: 100%; padding-bottom: 60px; }
-.section-title { text-align: center; letter-spacing: 10px; font-weight: 200; margin-bottom: 30px; opacity: 0.7; }
 
 .hobby-track {
-    display: flex;
-    overflow-x: auto;
-    gap: 30px;
-    padding: 20px 50px 40px;
-    cursor: grab;
-    scroll-behavior: smooth;
+    display: flex; overflow-x: auto; gap: 30px; padding: 20px 50px 40px; cursor: grab;
 }
 
 .hobby-track::-webkit-scrollbar { height: 10px; }
-.hobby-track::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.05); border-radius: 10px; margin: 0 10%; }
 .hobby-track::-webkit-scrollbar-thumb {
     background: linear-gradient(to right, #ff2e63, #08d9d6, #ffeb3b);
     border-radius: 10px;
 }
 
 .hobby-card {
-    min-width: 400px;
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(20px);
-    border-radius: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    overflow: hidden;
-    transition: 0.4s;
+    min-width: 400px; background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px); border-radius: 30px; overflow: hidden;
 }
-.hobby-card:hover { transform: translateY(-10px); background: rgba(255, 255, 255, 0.15); }
-.hobby-card img { width: 100%; height: 280px; object-fit: cover; pointer-events: none; }
-.card-info { padding: 30px; text-align: center; }
 
 .slide-up { animation: slideUp 1s ease-out; }
-.delay-1 { animation: slideUp 1s ease-out 0.2s forwards; opacity: 0; }
-.delay-2 { animation: slideUp 1s ease-out 0.4s forwards; opacity: 0; }
 @keyframes slideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
-
-.footer { text-align: center; padding: 40px; opacity: 0.4; font-size: 0.8rem; }
