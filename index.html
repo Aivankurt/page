@@ -33,10 +33,10 @@
         <section id="story" class="intro-section glow-card delay-1">
             <div class="intro-content">
                 <p>Meet <strong>Aivan Kurt S. Ordoñez</strong>, professionally known as <strong>Kurt Animate</strong>. He is a young Filipino Businessman and Pinoy Animator who aims to build worlds that others only dream of.</p>
-                <p>Based in the Philippines, Kurt is a multi-hyphenate creator blending traditional grit with modern digital flair, focusing on architecting digital spaces through 3D design and motion graphics.</p>
-                <p>He is currently navigating the technical landscape as a <strong>Grade 11 ICT student</strong> at the Southern Philippines Institute of Science and Technology, working to bridge complex code and storytelling.</p>
+                <p>Based in the Philippines, Kurt blends traditional storytelling with modern digital flair, focusing on architecting digital spaces through 3D design and motion graphics.</p>
+                <p>He is currently a <strong>Grade 11 ICT student</strong> at the Southern Philippines Institute of Science and Technology, working to bridge technical code and creative narratives.</p>
                 <p>When he isn't in "the lab," Kurt is an active volleyball player, often finding inspiration in the physics and agility of the sport to improve his animation timing.</p>
-                <p>This portfolio serves as a gateway to his latest projects, including qualitative research on smartwatch user experiences and professional multimedia services for his brand.</p>
+                <p>This portfolio serves as a gateway to his latest projects, including qualitative research on smartwatch user experiences and professional multimedia services.</p>
             </div>
         </section>
 
@@ -65,19 +65,19 @@
                 <div class="services-grid">
                     <div class="service-item">
                         <div class="service-icon">🎞️</div>
-                        <div class="service-text"><h3>Motion graphics</h3><p>Post-production services to add the finishing touches.</p></div>
+                        <div class="service-text"><h3>Motion graphics</h3><p>Post-production services for finishing touches.</p></div>
                     </div>
                     <div class="service-item">
                         <div class="service-icon">✍️</div>
-                        <div class="service-text"><h3>Scriptwriting and editing</h3><p>Crafting narratives that resonate with your audience.</p></div>
+                        <div class="service-text"><h3>Scriptwriting and editing</h3><p>Crafting narratives that resonate.</p></div>
                     </div>
                     <div class="service-item">
                         <div class="service-icon">📁</div>
-                        <div class="service-text"><h3>Video distribution</h3><p>Helping your content reach the right platforms.</p></div>
+                        <div class="service-text"><h3>Video distribution</h3><p>Helping content reach the right platforms.</p></div>
                     </div>
                     <div class="service-item">
                         <div class="service-icon">🎥</div>
-                        <div class="service-text"><h3>Video hosting</h3><p>Professional management for your media content.</p></div>
+                        <div class="service-text"><h3>Video hosting</h3><p>Professional content management.</p></div>
                     </div>
                 </div>
             </div>
@@ -87,8 +87,8 @@
     <footer class="footer-container">
         <div class="footer-content glow-card">
             <h3>KURT ANIMATE STUDIOS</h3>
-            <p>Aivan Kurt S. Ordoñez | Grade 11 ICT student</p>
-            <p class="copyright">&copy; 2026 | SPIST Academic Portfolio</p>
+            <p>Aivan Kurt S. Ordoñez | Grade 11 ICT</p>
+            <p class="copyright">&copy; 2026 | Academic Portfolio</p>
         </div>
     </footer>
 
@@ -99,8 +99,7 @@
         slider.addEventListener('mouseleave', () => isDown = false);
         slider.addEventListener('mouseup', () => isDown = false);
         slider.addEventListener('mousemove', (e) => {
-            if(!isDown) return;
-            e.preventDefault();
+            if(!isDown) return; e.preventDefault();
             const x = e.pageX - slider.offsetLeft;
             const walk = (x - startX) * 2; 
             slider.scrollLeft = scrollLeft - walk;
